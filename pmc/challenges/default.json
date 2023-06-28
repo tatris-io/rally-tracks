@@ -41,33 +41,6 @@
           "ignore-response-error-level": "{{error_level | default('non-fatal')}}"
         },
         {
-          "name": "refresh-after-index",
-          "operation": "refresh"
-        },
-        {
-          "operation": {
-            "operation-type": "force-merge",
-            "request-timeout": 7200
-          }
-        },
-        {
-          "name": "refresh-after-force-merge",
-          "operation": "refresh"
-        },
-        {
-          "name": "wait-until-merges-finish",
-          "operation": {
-            "operation-type": "index-stats",
-            "index": "_all",
-            "condition": {
-              "path": "_all.total.merges.current",
-              "expected-value": 0
-            },
-            "retry-until-success": true,
-            "include-in-reporting": false
-          }
-        },
-        {
           "operation": "default",
           "warmup-iterations": 500,
           "iterations": 200,
@@ -80,28 +53,22 @@
           "target-throughput": 20
         },
         {
-          "operation": "phrase",
-          "warmup-iterations": 500,
-          "iterations": 200,
-          "target-throughput": 20
-        },
-        {
           "operation": "articles_monthly_agg_uncached",
           "warmup-iterations": 500,
           "iterations": 200,
           "target-throughput": 20
         },
         {
-          "operation": "articles_monthly_agg_cached",
+          "operation": "articles_day_agg_range_l",
           "warmup-iterations": 500,
           "iterations": 200,
           "target-throughput": 20
         },
-        {
-          "operation": "scroll",
-          "warmup-iterations": 50,
-          "iterations": 100,
-          "target-throughput": 0.5
+         {
+          "operation": "articles_day_agg_range_r",
+          "warmup-iterations": 500,
+          "iterations": 200,
+          "target-throughput": 20
         }
       ]
     },

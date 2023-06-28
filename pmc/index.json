@@ -33,7 +33,7 @@
         "format": "yyyy-MM-dd HH:mm:ss"
       },
       "pmid": {
-        "type": "integer"
+        "type": "keyword"
       },
       "body": {
         "type": "text"
