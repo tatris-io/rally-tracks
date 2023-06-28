@@ -69,6 +69,56 @@
       }
     },
     {
+      "name": "articles_day_agg_range_l",
+      "operation-type": "search",
+      "#COMMENT": "hits.total.value=71853",
+      "response-compression-enabled": false,
+      "body": {
+          "size": 0,
+          "query": {
+              "range": {
+                  "timestamp": {
+                      "gte": 1141099800000,
+                      "lte": 1335931800000
+                  }
+              }
+          },
+          "aggs": {
+              "articles_over_time": {
+                "date_histogram": {
+                    "field": "timestamp",
+                    "calendar_interval": "day"
+                }
+              }
+          }
+      }
+    },
+    {
+      "name": "articles_day_agg_range_r",
+      "operation-type": "search",
+      "#COMMENT": "hits.total.value=14907",
+      "response-compression-enabled": false,
+      "body": {
+          "size": 0,
+          "query": {
+              "range": {
+                  "timestamp": {
+                      "gte": 1451707800000,
+                      "lte": 1454386200000
+                  }
+              }
+          },
+          "aggs": {
+              "articles_over_time": {
+                "date_histogram": {
+                    "field": "timestamp",
+                    "calendar_interval": "day"
+                }
+              }
+          }
+      }
+    },
+    {
       "name": "articles_monthly_agg_cached",
       "operation-type": "search",
       "cache": true,
