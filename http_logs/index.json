@@ -24,29 +24,16 @@
         "doc_values": false
       },
       "clientip": {
-        "type": "ip"
+        "type": "keyword"
       },
       "request": {
-        "type": "match_only_text",
-        "fields": {
-          "raw": {
-            "ignore_above": 256,
-            "type": "keyword"
-          }
-        }
+        "type": "keyword"
       },
       "status": {
         "type": "integer"
       },
       "size": {
         "type": "integer"
-      },
-      "geoip" : {
-        "properties" : {
-          "country_name": { "type": "keyword" },
-          "city_name": { "type": "keyword" },
-          "location" : { "type" : "geo_point" }
-        }
       }
     }
   }
