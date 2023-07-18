@@ -54,7 +54,12 @@
       "index": "logs-*",
       "body": {
         "query": {
-          "match_all": {}
+          "range": {
+            "@timestamp": {
+              "gte": {{query_range_ts_start | tojson}},
+              "lt": {{query_range_ts_end | tojson}}
+            }
+          }
         }
       }
     },
@@ -65,17 +70,31 @@
       "request-timeout": 7200,
       "body": {
         "query": {
-          "term": {
-            {%- if runtime_fields is defined %}
-              {# Runtime fields make a "path" instead of "request.raw" because that is what the canned example of grok and dissect typically do. #}
-              "path": {
-                "value": "/"
+          "bool": {
+            "must": [
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": {{query_range_ts_start | tojson}},
+                    "lt": {{query_range_ts_end | tojson}}
+                  }
+                }
+              },
+              {
+                "term": {
+                  {%- if runtime_fields is defined %}
+                    {# Runtime fields make a "path" instead of "request.raw" because that is what the canned example of grok and dissect typically do. #}
+                    "path": {
+                      "value": "/"
+                    }
+                  {%- else %}
+                    "request.raw": {
+                      "value": "GET / HTTP/1.0"
+                    }
+                  {%- endif %}
+                }
               }
-            {%- else %}
-              "request.raw": {
-                "value": "GET / HTTP/1.0"
-              }
-            {%- endif %}
+            ]
           }
         }
       },
@@ -96,8 +115,8 @@
         "query": {
           "range": {
             "@timestamp": {
-              "gte": "now-{{'15-05-1998' | days_ago(now)}}d/d",
-              "lt": "now/d"
+              "gte": {{query_range_ts_start | tojson}},
+              "lt": {{query_range_ts_end | tojson}}
             }
           }
         }
@@ -184,6 +203,14 @@
       "operation-type": "search",
       "index": "logs-*",
       "body": {
+        "query": {
+          "range": {
+            "@timestamp": {
+              "gte": {{query_range_ts_start | tojson}},
+              "lt": {{query_range_ts_end | tojson}}
+            }
+          }
+        },
         "size": 0,
         "aggs": {
           "by_hour": {
@@ -213,7 +240,12 @@
       "index": "logs-*",
       "body": {
         "query": {
-          "match_all": {}
+          "range": {
+            "@timestamp": {
+              "gte": {{query_range_ts_start | tojson}},
+              "lt": {{query_range_ts_end | tojson}}
+            }
+          }
         },
         "sort" : [
           {"@timestamp" : "desc"}
@@ -241,7 +273,12 @@
       "index": "logs-*",
       "body": {
         "query": {
-          "match_all": {}
+          "range": {
+            "@timestamp": {
+              "gte": {{query_range_ts_start | tojson}},
+              "lt": {{query_range_ts_end | tojson}}
+            }
+          }
         },
         "sort" : [
           {"@timestamp" : "asc"}
