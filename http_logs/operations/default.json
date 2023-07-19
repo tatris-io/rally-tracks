@@ -248,7 +248,11 @@
           }
         },
         "sort" : [
-          {"@timestamp" : "desc"}
+          {
+            "@timestamp": {
+              "order": "desc"
+            }
+          }
         ]
       }
     },
@@ -262,7 +266,11 @@
           "match_all": {}
         },
         "sort" : [
-          {"@timestamp" : "desc"}
+          {
+            "@timestamp": {
+              "order": "desc"
+            }
+          }
         ],
         "search_after": [{{search_after_ts | tojson}}]
       }
@@ -281,7 +289,11 @@
           }
         },
         "sort" : [
-          {"@timestamp" : "asc"}
+          {
+            "@timestamp": {
+              "order": "asc"
+            }
+          }
         ]
       }
     },
@@ -295,7 +307,11 @@
           "match_all": {}
         },
         "sort" : [
-          {"@timestamp" : "asc"}
+          {
+            "@timestamp": {
+              "order": "asc"
+            }
+          }
         ],
         "search_after": [{{search_after_ts | tojson}}]
       }
@@ -312,7 +328,11 @@
           }
         },
         "sort" : [
-          {"@timestamp" : "desc"}
+          {
+            "@timestamp": {
+              "order": "desc"
+            }
+          }
         ]
       }
     },
@@ -331,7 +351,11 @@
           }
         },
         "sort" : [
-          {"@timestamp" : "desc"}
+          {
+            "@timestamp": {
+              "order": "desc"
+            }
+          }
         ]
       }
     },
