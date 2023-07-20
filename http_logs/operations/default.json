@@ -235,7 +235,7 @@
       }
     },
     {
-      "name": "desc_sort_timestamp",
+      "name": "desc_sort_ts",
       "operation-type": "search",
       "index": "logs-*",
       "body": {
@@ -276,7 +276,7 @@
       }
     },
     {
-      "name": "asc_sort_timestamp",
+      "name": "asc_sort_ts",
       "operation-type": "search",
       "index": "logs-*",
       "body": {

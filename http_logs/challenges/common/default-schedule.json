@@ -149,13 +149,13 @@
           "target-throughput": 1
         },
         {
-          "operation": "desc_sort_timestamp",
+          "operation": "desc_sort_ts",
           "warmup-iterations": 200,
           "iterations": 100,
           "target-throughput": 2
         },
         {
-          "operation": "asc_sort_timestamp",
+          "operation": "asc_sort_ts",
           "warmup-iterations": 200,
           "iterations": 100,
           "target-throughput": 20
@@ -237,14 +237,14 @@
         },
         {
           "name": "desc-sort-timestamp-after-force-merge-1-seg",
-          "operation": "desc_sort_timestamp",
+          "operation": "desc_sort_ts",
           "warmup-iterations": 200,
           "iterations": 100,
           "target-throughput": 1
         },
         {
           "name": "asc-sort-timestamp-after-force-merge-1-seg",
-          "operation": "asc_sort_timestamp",
+          "operation": "asc_sort_ts",
           "warmup-iterations": 200,
           "iterations": 100,
           "target-throughput": 50
